@@ -1,0 +1,4 @@
+Flask==2.0.1
+phonenumbers==8.12.21
+tinydb==4.5.1
+requests==2.26.0

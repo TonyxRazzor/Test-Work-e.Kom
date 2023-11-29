@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Template</title>
+</head>
+<body>
+    <h1>Edit Template</h1>
+    <form method="POST" action="/edit_template/{{ template.doc_id }}">
+
+        <!-- Поле "Имя" -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ template.name }}" placeholder="Name" required><br>
+
+        <!-- Поле "Email" -->
+        <label for="email">Email Field:</label>
+        <input type="email" id="email" name="email" value="{{ template.email }}" placeholder="email@example.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required><br>
+
+        <!-- Поле "Телефон" с использованием библиотеки inputmask -->
+        <label for="phone">Phone Field:</label>
+        <input type="tel" id="phone" name="phone" value="{{ template.phone }}" placeholder="+7 xxx xxx xx xx" required><br>
+
+        <!-- Поле "Дата" -->
+        <label for="date">Date Field:</label>
+        <input type="date" id="date" name="date" value="{{ template.date }}" required><br>
+
+        <!-- Добавьте остальные поля в соответствии с вашими требованиями -->
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <!-- Подключение библиотеки inputmask для маски телефона -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+    <script>
+        // Применение маски к полю телефона
+        $(document).ready(function(){
+            $("#phone_field").inputmask("+7 999 999 99 99");
+        });
+    </script>
+</body>
+</html>

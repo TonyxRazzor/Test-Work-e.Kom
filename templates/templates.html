@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates</title>
+</head>
+<body>
+
+<h1>Form Templates</h1>
+
+{% if templates %}
+    <ul>
+        {% for template in templates %}
+            <li>
+                <strong>Name:</strong> {{ template['name'] }}<br>
+                <strong>Date:</strong> {{ template['date'] }}<br>  <!-- Add this line for date -->
+                <strong>Phone:</strong> {{ template['phone'] }}<br>
+                <strong>Email:</strong> {{ template['email'] }}<br>
+                <!-- Add similar lines for other fields you want to display -->
+                >
+                <a href="/edit_template/{{ template.doc_id }}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No templates found.</p>
+{% endif %}
+>
+<a href="/add_template">Add Template</a>
+
+</body>
+</html>
